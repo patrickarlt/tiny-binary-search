@@ -56,15 +56,15 @@ export default class BinarySearchIndex {
     return this.values.slice(startIndex, endIndex);
   }
 
-  insert (item, index) {
-    this.values.splice(this.getIndex(item.value), 0, value);
+  insert (item) {
+    this.values.splice(this.getIndex(item.value), 0, item);
     return this;
   }
 
   bulkAdd (items = [], sort = false) {
     this.values = this.values.concat([].concat(items));
 
-    if(sort) {
+    if (sort) {
       this.sort();
     } else {
       this.dirty = true;
