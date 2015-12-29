@@ -7,6 +7,7 @@
     "url": "https://github.com/patrickarlt/tiny-binary-search/issues"
   },
   "devDependencies": {
+    "babel": "^5.8.34",
     "babelify": "^5.0.5",
     "faucet": "0.0.1",
     "gh-release": "^2.0.2",
