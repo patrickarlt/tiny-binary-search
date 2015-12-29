@@ -41,8 +41,17 @@ export default class BinarySearchIndex {
       return [];
     }
 
-    startIndex = Math.abs(startIndex);
-    endIndex = (endIndex < 0) ? Math.abs(endIndex) : endIndex + 1;
+    while (this.values[startIndex - 1] && this.values[startIndex - 1].value === start) {
+      startIndex--;
+    }
+
+    while (this.values[endIndex + 1] && this.values[endIndex + 1].value === end) {
+      endIndex++;
+    }
+
+    if (this.values[endIndex].value === end) {
+      endIndex++;
+    }
 
     return this.values.slice(startIndex, endIndex);
   }

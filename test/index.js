@@ -78,14 +78,16 @@ test('should query for insertion point', function (t) {
   t.end();
 });
 
-test('should query for insertion point', function (t) {
+test('query between two numbers', function (t) {
   var index = new BinarySearchIndex(values);
   index.bulkAdd([
     { value: 30, id: 3 },
     { value: 40, id: 4 },
-    { value: 50, id: 5 }
+    { value: 50, id: 5 },
+    { value: 60, id: 6 }
   ]);
-  var results = index.between(30, 55);
-  t.equal(results.length, 6);
+
+  t.equal(index.between(30, 60).length, 8);
+  t.equal(index.between(35, 55).length, 4);
   t.end();
 });

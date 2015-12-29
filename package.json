@@ -38,7 +38,7 @@
   },
   "scripts": {
     "lint": "semistandard | snazzy",
-    "test:node": "babel-node test/index.js | faucet",
+    "test:node": "babel-node test/index.js",
     "test:browser": "browserify test/index.js -t [ babelify --loose ] --debug | tape-run | faucet",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "release": "./release.sh",
