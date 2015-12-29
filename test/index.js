@@ -64,10 +64,10 @@ test('should get items between 2 values', function (t) {
 
 test('should query for insertion point', function (t) {
   var index = new BinarySearchIndex(values);
-  var insertAt = index.getIndex(55);
-  t.equal(insertAt, 6);
-  index.insert({value: 55, id: 5.5}, insertAt);
+  index.insert({value: 55, id: 5.5});
+
   var result = index.between(25, 60);
+
   t.deepEqual(result, [
     { value: 30, id: 3 },
     { value: 40, id: 4 },

@@ -9,6 +9,10 @@ export default class BinarySearchIndex {
   }
 
   getIndex (value) {
+    if (this.dirty) {
+      this.sort();
+    }
+
     var minIndex = 0;
     var maxIndex = this.values.length - 1;
     var currentIndex;
@@ -30,10 +34,6 @@ export default class BinarySearchIndex {
   }
 
   between (start, end) {
-    if (this.dirty) {
-      this.sort();
-    }
-
     var startIndex = this.getIndex(start);
     var endIndex = this.getIndex(end);
 
@@ -56,14 +56,20 @@ export default class BinarySearchIndex {
     return this.values.slice(startIndex, endIndex);
   }
 
-  insert (value, index) {
-    this.values.splice(index, 0, value);
+  insert (item, index) {
+    this.values.splice(this.getIndex(item.value), 0, value);
     return this;
   }
 
-  bulkAdd (items = []) {
-    this.dirty = true;
+  bulkAdd (items = [], sort = false) {
     this.values = this.values.concat([].concat(items));
+
+    if(sort) {
+      this.sort();
+    } else {
+      this.dirty = true;
+    }
+
     return this;
   }
 
