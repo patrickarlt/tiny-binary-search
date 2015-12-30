@@ -1,7 +1,7 @@
 {
   "name": "tiny-binary-search",
   "description": "Very small binary search index implimentation.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Patrick Arlt <patrick.arlt@gmail.com>",
   "bugs": {
     "url": "https://github.com/patrickarlt/tiny-binary-search/issues"
