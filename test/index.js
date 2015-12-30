@@ -80,6 +80,12 @@ test('should query for insertion point', function (t) {
 
 test('query between two numbers', function (t) {
   var index = new BinarySearchIndex(values);
+  t.equal(index.between(30, 60).length, 4);
+  t.end();
+});
+
+test('query between two numbers and include duplicates', function (t) {
+  var index = new BinarySearchIndex(values);
   index.bulkAdd([
     { value: 30, id: 3 },
     { value: 40, id: 4 },
@@ -89,5 +95,19 @@ test('query between two numbers', function (t) {
 
   t.equal(index.between(30, 60).length, 8);
   t.equal(index.between(35, 55).length, 4);
+  t.end();
+});
+
+test('query between two numbers going beyond the highest value', function (t) {
+  var index = new BinarySearchIndex(values);
+
+  t.equal(index.between(0, 110).length, 11);
+  t.end();
+});
+
+test('query between two numbers going below the lowest value', function (t) {
+  var index = new BinarySearchIndex(values);
+
+  t.equal(index.between(-10, 10).length, 2);
   t.end();
 });

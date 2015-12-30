@@ -48,7 +48,7 @@ BinarySearchIndex.prototype.between = function between (start, end) {
     endIndex++;
   }
 
-  if (this.values[endIndex].value === end) {
+  if (this.values[endIndex] && this.values[endIndex].value === end && this.values[endIndex + 1]) {
     endIndex++;
   }
 
