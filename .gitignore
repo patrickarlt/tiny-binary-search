@@ -28,3 +28,9 @@ node_modules
 
 # Built Files
 dist
+
+# bundles for github releases
+*.zip
+
+# electron test cruft
+.source.*.html

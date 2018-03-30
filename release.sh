@@ -20,7 +20,7 @@ git add dist -f
 git commit -m "build $VERSION"
 
 # push commit so it exists on GitHub when we run gh-release
-git push origin gh-release
+git push https://github.com/patrickarlt/tiny-binary-search gh-release
 
 # create a ZIP archive of the dist files
 zip -r $NAME-v$VERSION.zip dist
